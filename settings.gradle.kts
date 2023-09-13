@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Compose Material 3 Components"
 include(":app")
- 
+include(":library")
