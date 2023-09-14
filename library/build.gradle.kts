@@ -2,6 +2,22 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
+    `maven-publish`
+}
+
+val releaseVariant = "release"
+publishing {
+    publications {
+        register<MavenPublication>(releaseVariant) {
+            groupId = "com.susumunoda"
+            artifactId = "compose-material3-components"
+            version = "1.0"
+
+            afterEvaluate {
+                from(components[releaseVariant])
+            }
+        }
+    }
 }
 
 android {
@@ -36,6 +52,12 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.3"
+    }
+    publishing {
+        singleVariant(releaseVariant) {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
 }
 
