@@ -9,9 +9,9 @@ val releaseVariant = "release"
 publishing {
     publications {
         register<MavenPublication>(releaseVariant) {
-            groupId = "com.susumunoda"
+            groupId = "com.susumunoda.compose"
             artifactId = "compose-material3-components"
-            version = "1.0"
+            version = "0.1.0"
 
             afterEvaluate {
                 from(components[releaseVariant])
